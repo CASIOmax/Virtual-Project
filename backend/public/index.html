@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notes App</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; }
+    h1 { text-align: center; }
+    form { margin-bottom: 1rem; }
+    input[type="text"] { width: 80%; padding: 0.5rem; }
+    button { padding: 0.5rem; }
+    ul { list-style-type: none; padding: 0; }
+    li { background: #f4f4f4; margin-bottom: 0.5rem; padding: 0.5rem; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <h1>Notes</h1>
+  <form id="noteForm">
+    <input type="text" id="noteInput" placeholder="Enter note content" required />
+    <button type="submit">Add Note</button>
+  </form>
+  <ul id="notesList"></ul>
+
+  <script>
+    const notesList = document.getElementById('notesList');
+    const noteForm = document.getElementById('noteForm');
+    const noteInput = document.getElementById('noteInput');
+
+    async function fetchNotes() {
+      const res = await fetch('/api/notes');
+      const notes = await res.json();
+      notesList.innerHTML = '';
+      notes.forEach(note => {
+        const li = document.createElement('li');
+        li.textContent = note.content;
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.style.marginLeft = '1rem';
+        delBtn.onclick = async () => {
+          await fetch(`/api/notes/${note.id}`, { method: 'DELETE' });
+          fetchNotes();
+        };
+        li.appendChild(delBtn);
+        notesList.appendChild(li);
+      });
+    }
+
+    noteForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const content = noteInput.value.trim();
+      if (!content) return;
+      await fetch('/api/notes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content })
+      });
+      noteInput.value = '';
+      fetchNotes();
+    };
+
+    fetchNotes();
+  </script>
+</body>
+</html>
