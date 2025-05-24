@@ -3066,4 +3066,159 @@ To https://github.com/CASIOmax/Virtual-Project
    6fb1c94..7fba053  main -> main
 [?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project/client [0;36m([1;31mmain[0;36m) [0m$ cd ..
 [?2004l[?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project [0;36m([1;31mmain[0;36m) [0m$ git add .
+[?2004l[?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project [0;36m([1;31mmain[0;36m) [0m$ git commit
+[?2004lhint: Waiting for your editor to close the file... ^C
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project [0;36m([1;31mmain[0;36m) [0m$ git commit -m ""a"l"l"
+[?2004l[main 5843f96] all
+ 3 files changed, 3076 insertions(+)
+ create mode 100644 .devcontainer/devcontainer.json
+ create mode 100644 docker-compose.yml
+ create mode 100644 terminal.log
+[?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project [0;36m([1;31mmain[0;36m) [0m$ git pi[Kush origin main
+[?2004lEnumerating objects: 7, done.
+Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42% (3/7)Counting objects:  57% (4/7)Counting objects:  71% (5/7)Counting objects:  85% (6/7)Counting objects: 100% (7/7)Counting objects: 100% (7/7), done.
+Delta compression using up to 2 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  16% (1/6)Writing objects:  33% (2/6)Writing objects:  50% (3/6)Writing objects:  66% (4/6)Writing objects:  83% (5/6)Writing objects: 100% (6/6)Writing objects: 100% (6/6), 51.91 KiB | 5.19 MiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/CASIOmax/Virtual-Project
+   7fba053..5843f96  main -> main
+[?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project [0;36m([1;31mmain[0;36m) [0m$ [7mmkdir server[27m
+[7mcd server[27m
+[7mnpm init -y[27m
+[7mnpm install express cors[27m
+[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmkdir server
+cd server
+npm init -y
+npm install express cors
+[A
+[?2004lmkdir: cannot create directory ‘server’: File exists
+[1G[0KWrote to /workspaces/Virtual-Project/server/package.json:
+
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+[1G[0K⠙[1G[0K[1G[0K⠙[1G[0K⠹[1G[0K⠸[1G[0K⠼[1G[0K⠴[1G[0K⠦[1G[0K⠧[1G[0K⠇[1G[0K⠏[1G[0K⠋[1G[0K⠙[1G[0K⠹[1G[0K⠸[1G[0K⠼[1G[0K⠴[1G[0K⠦[1G[0K⠧[1G[0K⠇[1G[0K
+added 68 packages, and audited 69 packages in 2s
+[1G[0K⠇[1G[0K
+[1G[0K⠇[1G[0K14 packages are looking for funding
+[1G[0K⠇[1G[0K  run `npm fund` for details
+[1G[0K⠇[1G[0K
+found [32m[1m0[22m[39m vulnerabilities
+[1G[0K⠇[1G[0K[?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ cd derver[K[K[K[K[K[Kserver
+[?2004lbash: cd: server: No such file or directory
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ cd /ser[K[K[K[Kserver.[K/
+[?2004lbash: cd: server/: No such file or directory
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ ls
+[?2004l[0m[34;42mnode_modules[0m  package.json  package-lock.json
+[?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ cd [K[K[K[7mtouch index.js[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ctouch index.js
+[A
+[?2004l[?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ [K[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ [7mnode index.js[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cnode index.js
+[A
+[?2004lServer running on http://localhost:5000
+^C
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ [7mhttp://localhost:5000/api/hello[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chttp://localhost:5000/api/hello
+[A
+[?2004lbash: http://localhost:5000/api/hello: No such file or directory
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ http://localhost:5000/api/hello[18Pnode index.js
+[?2004lServer running on http://localhost:5000
+^C
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ node index.js
+[?2004lServer running on http://localhost:5000
+^C
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ [7mcd client[27m
+[7mnpm start[27m
+[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd client
+npm start
+[A
+[?2004lbash: cd: client: No such file or directory
+[1mnpm[22m [31merror[39m Missing script: "start"
+[1mnpm[22m [31merror[39m
+[1mnpm[22m [31merror[39m Did you mean one of these?
+[1mnpm[22m [31merror[39m   npm star # Mark your favorite packages
+[1mnpm[22m [31merror[39m   npm stars # View packages marked as favorites
+[1mnpm[22m [31merror[39m
+[1mnpm[22m [31merror[39m To see a list of scripts, run:
+[1mnpm[22m [31merror[39m   npm run
+[1mnpm[22m [31merror[39m A complete log of this run can be found in: /home/vscode/.npm/_logs/2025-05-24T10_44_44_076Z-debug-0.log
+[1G[0K[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ cd Clien[K[K[K[K[Kc[K[K..
+[?2004lbash: cd..: command not found
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/server [0;36m([1;31mmain[0;36m) [0m$ cd 
+[?2004l[?2004h[0;32m@CASIOmax [0m➜ [1;34m~ [0m$ cd /workspaces/v[KVirtual-Project/
+[?2004l[?2004h[0;32m@CASIOmax [0m➜ [1;34m/workspaces/Virtual-Project [0;36m([1;31mmain[0;36m) [0m$ [7mcd client[27m
+[7mnpm start[27m
+[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd client
+npm start
+[A
 [?2004l
+> client@0.1.0 start
+> react-scripts start
+
+[1G[0K(node:32494) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:32494) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[2J[3J[H[36mStarting the development server...[39m
+[36m[39m
+[2J[3J[H[32mCompiled successfully![39m
+
+You can now view [1mclient[22m in the browser.
+
+  [1mLocal:[22m            http://localhost:[1m3000[22m
+  [1mOn Your Network:[22m  http://10.0.0.214:[1m3000[22m
+
+Note that the development build is not optimized.
+To create a production build, use [36mnpm run build[39m.
+
+webpack compiled [1m[32msuccessfully[39m[22m
+^C
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/client [0;36m([1;31mmain[0;36m) [0m$ npm startcd clientnpm start
+[?2004l
+> client@0.1.0 start
+> react-scripts start
+
+[1G[0K(node:34849) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:34849) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[2J[3J[H[36mStarting the development server...[39m
+[36m[39m
+[2J[3J[H[32mCompiled successfully![39m
+
+You can now view [1mclient[22m in the browser.
+
+  [1mLocal:[22m            http://localhost:[1m3000[22m
+  [1mOn Your Network:[22m  http://10.0.0.214:[1m3000[22m
+
+Note that the development build is not optimized.
+To create a production build, use [36mnpm run build[39m.
+
+webpack compiled [1m[32msuccessfully[39m[22m
+[2J[3J[HCompiling...
+[2J[3J[H[32mCompiled successfully![39m
+
+You can now view [1mclient[22m in the browser.
+
+  [1mLocal:[22m            http://localhost:[1m3000[22m
+  [1mOn Your Network:[22m  http://10.0.0.214:[1m3000[22m
+
+Note that the development build is not optimized.
+To create a production build, use [36mnpm run build[39m.
+
+webpack compiled [1m[32msuccessfully[39m[22m
+^C
+[?2004h[0;32m@CASIOmax [1;31m➜ [1;34m/workspaces/Virtual-Project/client [0;36m([1;31mmain[0;36m) [0m$ [?2004l
+exit
