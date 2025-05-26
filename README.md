@@ -1,87 +1,73 @@
-# 🐳 Notes App Project – Docker-Based Full Stack App
+# Notes App Project – Docker-Based Full Stack Application
 
-## 📌 Overview
+## Project Team
 
-This project is a **simple Notes App** developed with a static frontend (HTML/CSS/JS), a **Node.js backend**, and a **MySQL database**, all containerized using **Docker** and managed using **Docker Compose**. The primary objective of this project was to understand and demonstrate **multi-container orchestration**, **Docker image creation**, **service separation**, and **persistent storage using volumes**.
+```
+Sajjad Ahmad
+ITS-11072
 
----
+Saad Sarwar
+ITS-11068
 
-## 🧱 Project Structure
-
-```bash
-project-root/
-├── backend/
-│   ├── Dockerfile           # Builds the Node.js backend image
-│   ├── index.js             # Backend server with notes API
-│   ├── package.json         # Node dependencies
-│   └── public/
-│       └── index.html       # Frontend UI served by backend
-├── docker-compose.yml       # Orchestrates backend & DB
-└── README.md                # Project documentation
-````
-
-📸 **Screenshot:**
-![Project Structure](./screenshots/project-structure.png)
-
----
-
-## ⚙️ Technologies Used
-
-* **Node.js** – JavaScript runtime for backend
-* **MySQL 8.0** – Relational database
-* **Docker** – Containerization of services
-* **Docker Compose** – Managing multi-container environments
-* **HTML, CSS, JS** – Frontend UI
-* **cURL/Postman** – For testing API endpoints
-
----
-
-## 🐳 Docker Architecture Overview
-
-```plaintext
-+--------------------+
-| Frontend (HTML/JS) |
-+--------------------+
-         |
-         v
-+--------------------------+
-| Node.js API (backend)    |
-| - Serves HTML frontend   |
-| - Handles /api/notes     |
-+--------------------------+
-         |
-         v
-+--------------------------+
-| MySQL Database           |
-| - Stores notes           |
-| - Connected via Docker   |
-+--------------------------+
+Umair Hanif
+ITS-11058
 ```
 
-All services run in isolated containers, managed by Docker Compose.
+## Overview
 
----
+This project is a **Notes App** developed using a static frontend (HTML/CSS/JS), a **Node.js backend**, and a **MySQL database**, all containerized with **Docker** and managed using **Docker Compose**. It demonstrates:
 
-## 🚀 Step-by-Step: How This Project Was Built and Run
+* Multi-container orchestration
+* Docker image creation
+* Service separation
+* Persistent storage with volumes
 
-### 🛠️ 1. Set Up Backend & Frontend (Node.js + HTML)
 
-* Created `index.js` – basic Express server that:
+## Project Structure
 
-  * Serves static `index.html`
-  * Connects to MySQL
-  * Provides GET/POST APIs at `/api/notes`
+```
+project-root/
+├── backend/
+│   ├── Dockerfile
+│   ├── index.js
+│   ├── package.json
+│   └── public/
+│       └── index.html
+├── docker-compose.yml
+├── init.sql
+└── README.md
+```
 
-* Created `public/index.html` – simple HTML app that:
+<p align="center">
+  <img src="./screenshots/project-structure.png" alt="Centered Image" />
+</p>
 
-  * Fetches notes from `/api/notes`
-  * Displays them on the page
+## Technologies Used
 
----
+* Node.js (Backend API)
+* MySQL 8.0 (Database)
+* Docker (Containerization)
+* Docker Compose (Service orchestration)
+* HTML, CSS, JavaScript (Frontend)
+* cURL (API testing)
 
-### 🐳 2. Wrote Dockerfile for Backend
 
-`backend/Dockerfile`:
+## Architecture
+
+```
+Frontend (HTML/JS)
+        ↓
+Node.js Backend (API & Static File Server)
+        ↓
+MySQL Database (Data Storage)
+```
+
+Each service runs in its own Docker container, connected via Docker Compose.
+
+
+## Backend Dockerfile
+
+**Path:** `backend/Dockerfile`
 
 ```Dockerfile
 FROM node:18
@@ -97,11 +83,12 @@ EXPOSE 5000
 CMD ["node", "index.js"]
 ```
 
-📌 This defines a custom image for the backend service.
+This builds the backend service image and sets it to run on port 5000.
 
----
 
-### ⚙️ 3. Created `docker-compose.yml` to Orchestrate Everything
+## Docker Compose Configuration
+
+**Path:** `docker-compose.yml`
 
 ```yaml
 version: '3.8'
@@ -131,154 +118,106 @@ volumes:
   db_data:
 ```
 
-📌 This defines two services:
+### Services Breakdown
 
-| Service   | Image / Build         | Role                  |
-| --------- | --------------------- | --------------------- |
-| `backend` | Built from Dockerfile | Serves frontend + API |
-| `mysql`   | Official MySQL image  | Persistent database   |
+| Service | Description                           |
+| ------- | ------------------------------------- |
+| backend | Node.js API & frontend file server    |
+| mysql   | MySQL database with persistent volume |
 
----
 
-## 🧪 Commands Used to Run & Test Project
+## Commands
 
-### 🔧 Build and Start Containers
+### Build and Start the App
 
 ```bash
 docker-compose up --build
 ```
 
-📸 **Screenshot:**
-![Docker Compose Up](./screenshots/docker-up.png)
+<p align="center">
+  <img src="./screenshots/docker-up.png" alt="Centered Image" />
+</p>
 
-✅ This command:
 
-* Builds the backend Docker image
-* Pulls the MySQL image
-* Creates a custom Docker network
-* Mounts a named volume for DB persistence
-* Starts both services
-
----
-
-### 📂 Verify Containers Are Running
+### Verify Running Containers
 
 ```bash
 docker ps
 ```
 
-📸 **Screenshot:**
-![Docker ps](./screenshots/docker-ps.png)
-
-You should see both containers (`backend` and `mysql`) running.
+<p align="center">
+  <img src="./screenshots/docker-ps.png" alt="Centered Image" />
+</p>
 
 ---
 
-### 🔄 Stop Containers
+### Stop Services
 
 ```bash
 docker-compose down
 ```
 
-🚫 This stops and removes containers, but **does not delete the volume** (`db_data`) so your notes remain safe.
+Stops containers but keeps volumes (notes remain saved).
 
 ---
 
-## 🧪 Testing the Application
-
-### ✅ Access the App in Browser
-
-Navigate to:
-[http://localhost:5000](http://localhost:5000)
-
-📸 **Screenshot**:
-![Browser UI](./screenshots/image.png)
-
-You’ll see the frontend UI loaded from `public/index.html`.
-
----
-
-### 📬 API Testing with curl
-
-#### Get All Notes
-
-```bash
-curl http://localhost:5000/api/notes
-```
-
-📸 **Screenshot:**
-![cURL GET Notes](./screenshots/api-get-notes.png)
-
----
-
-## 💾 Persistent Storage (Volumes)
-
-The `db_data` volume in `docker-compose.yml` ensures your notes are saved to your system disk, so even if you remove containers:
-
-```bash
-docker-compose down
-```
-
-… you don’t lose your data. Restart the containers, and your notes are still there!
-
-```bash
-docker-compose up
-```
-
-To inspect volumes:
-
-```bash
-docker volume ls
-```
-
-📸 **Screenshot:**
-![Docker Volumes](./screenshots/docker-volum-ls.png)
-
----
-
-## 🧹 Clean Everything
-
-To remove containers + volume:
+### Clean Up Completely (Remove Containers and Volumes)
 
 ```bash
 docker-compose down -v
 ```
 
----
+## API Testing
 
-## 🧠 Learning Outcomes / Key Concepts
+### Open in Browser
 
-* Containerized a backend app using Docker
-* Served static frontend from Node backend
-* Orchestrated backend + MySQL using Docker Compose
-* Managed data persistence using Docker Volumes
-* Tested APIs via cURL and browser
-* Understood service dependencies and networking inside Docker
+[http://localhost:5000](http://localhost:5000)
+(Loads the frontend from `public/index.html`)
 
----
-
-## 📸 Screenshots Included
-
-| Screenshot Title               | Filename                |
-| ------------------------------ | ----------------------- |
-| Project Folder Structure       | `project-structure.png` |
-| `docker-compose up --build`    | `docker-up.png`         |
-| `docker ps` running containers | `docker-ps.png`         |
-| cURL GET `/api/notes`          | `api-get-notes.png`     |
-| Docker Volume Listing          | `docker-volume-ls.png`  |
-| Browser UI (optional)          | `browser-ui.png`        |
+<p align="center">
+  <img src="./screenshots/image.png" alt="Centered Image" />
+</p>
 
 ---
 
-## ✍️ Project Team
+### Test API with `curl`
 
+#### Fetch All Notes
+
+```bash
+curl http://localhost:5000/api/notes
 ```
-Sajjad Ahmad
-ITS-11072
 
-Saad Sarwar
-ITS-11068
+<p align="center">
+  <img src="./screenshots/api-get-notes.png" alt="Centered Image" />
+</p>
 
-Umair Hanif
-ITS-11058
+
+## Volumes and Persistence
+
+The volume `db_data` ensures that data is stored even if the container is removed. Restarting the app will restore all saved notes.
+
+To view volumes:
+
+```bash
+docker volume ls
 ```
+
+<p align="center">
+  <img src="./screenshots/docker-volum-ls.png" alt="Centered Image" />
+</p>
+
+
+## Learning Outcomes
+
+* Created a Dockerized Node.js backend
+* Served static frontend from the backend
+* Connected backend to MySQL using Docker Compose
+* Ensured data persistence via Docker volumes
+* Tested APIs using browser and `curl`
+* Understood service dependencies and inter-container networking
+
+
+## GitHub Repository
+
+[https://github.com/CASIOmax/Virtual-Project](https://github.com/CASIOmax/Virtual-Project)
